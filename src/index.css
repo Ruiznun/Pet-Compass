@@ -81,8 +81,6 @@ body {
     font-family: Helvetica;
     height: 42px;
     width: 42px;
-    /* border-radius: 50%;
-    border: 1px solid #c8c9ce; */
     background-color: transparent;
     outline: none;
     cursor: pointer;
@@ -99,8 +97,6 @@ body {
     font-family: Helvetica;
     height: 42px;
     width: 42px;
-    /* border-radius: 50%;
-    border: 1px solid #c8c9ce; */
     background-color: transparent;
     outline: none;
     cursor: pointer;
