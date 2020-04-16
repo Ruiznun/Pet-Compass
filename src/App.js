@@ -29,6 +29,7 @@ class App extends Component {
                     <Headline />
                 </div>
                 <div className="animal_container">
+                <div className="animal_object">
                     <Animal
                         pic={cat_pic}
                         name={cat_name}
@@ -40,7 +41,7 @@ class App extends Component {
                         about={about}
                     />
                 </div>
-                <div className="animal_container">
+                <div className="animal_object">
                     <Animal 
                         pic={dog_pic}
                         name={dog_name}
@@ -51,6 +52,7 @@ class App extends Component {
                         size={dog_size} 
                         about={about}
                     />
+                </div>
                 </div>
             </div>
         );
