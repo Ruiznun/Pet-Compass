@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import Select from 'react-select';
-import Horizontal from './Horizontal';
-import Slider, {Range} from 'rc-slider';
 
 
 const animals = [
@@ -75,7 +73,6 @@ class FilterMenu extends Component {
                             Gender
                             <Gend/>
                             Age
-                            <Range />
                             
                         </div>
                     )
