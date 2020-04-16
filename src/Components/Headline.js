@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import searchIcon from '../search-icon.png';
 
 class Headline extends Component {
     constructor() {
@@ -24,17 +23,19 @@ class Headline extends Component {
         ) : '';
 
         return (
-            <nav className="menu">
-                <h1 className="menu__logo">Pet Compass</h1>
+            <div className="container center">
+                <nav className="menu">
+                    <h1 className="menu__logo">Pet Compass</h1>
 
-                <div className="menu__right">
-                    <button onClick={this.showForm.bind(this)} className="menu__search-button">Filter</button>
-                    <button className="menu__list-button"></button>
-                    <button className="menu__block-button"></button>
+                    <div className="menu__right">
+                        <button onClick={this.showForm.bind(this)} className="menu__search-button">Filter</button>
+                        <button className="menu__list-button"></button>
+                        <button className="menu__block-button"></button>
 
-                    {searchForm}
-                </div>
-            </nav>
+                        {searchForm}
+                    </div>
+                </nav>
+            </div>
         );
     }
 }
