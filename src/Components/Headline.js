@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import searchIcon from '../search-icon.png';
+import FilterMenu from './FilterMenu';
 
 class Headline extends Component {
     constructor() {
@@ -23,9 +25,12 @@ class Headline extends Component {
         ) : '';
 
         return (
+
             <div className="container center">
                 <nav className="menu">
                     <h1 className="menu__logo">Pet Compass</h1>
+
+                    {/* <FilterMenu/> */}
 
                     <div className="menu__right">
                         <button onClick={this.showForm.bind(this)} className="menu__search-button">Filter</button>
