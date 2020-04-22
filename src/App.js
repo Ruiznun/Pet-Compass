@@ -1,58 +1,46 @@
 import React, { Component } from 'react';
 import Headline from './Components/Headline'
-import Animal from './Components/Animal'
+import AnimalContainer from './Components/AnimalContainer'
+// import Animal from './Components/Animal'
+// import FilterMenu from './Components/FilterMenu'
 
 import dog_pic from './Images/dog.jpg'
 import cat_pic from './Images/cat.jpg'
 
 class App extends Component {
     render() {
-        var cat_name = "Max";
-        var cat_gender = "M";
-        var cat_type = "Cat";
-        var cat_breed = "Tabby";
-        var cat_age = 2;
-        var cat_size = "Medium";
+        var cat = {
+            pic: cat_pic,
+            name : "Max",
+            gender : "M",
+            type : "Cat",
+            breed : "Tabby",
+            age : 2,
+            size : "Medium",
+            about: "Short info about the animal to include extra details about their personality and other info."
+        };
 
-        var dog_name = "Gracie";
-        var dog_gender = "F";
-        var dog_type = "Dog";
-        var dog_breed = "Collie Mix";
-        var dog_age = 6;
-        var dog_size = "Large";
-        
-        var about = "Short info about the animal to include extra details about their personality and other info.";
+        var dog = {
+            pic: dog_pic,
+            name : "Gracie",
+            gender : "F",
+            type : "Dog",
+            breed : "Collie Mix",
+            age : 6,
+            size : "Large",
+            about: "Short info about the animal to include extra details about their personality and other info."
+        };
 
         return (
             <div>
                 <div className="container center">
                     <Headline />
                 </div>
+                {/* <div className="center">
+                <FilterMenu/>
+                </div> */}
                 <div className="animal_container">
-                <div className="animal_object">
-                    <Animal
-                        pic={cat_pic}
-                        name={cat_name}
-                        gender={cat_gender}
-                        type={cat_type}
-                        breed={cat_breed}
-                        age={cat_age}
-                        size={cat_size}
-                        about={about}
-                    />
-                </div>
-                <div className="animal_object">
-                    <Animal 
-                        pic={dog_pic}
-                        name={dog_name}
-                        gender={dog_gender}
-                        type={dog_type}
-                        breed={dog_breed}
-                        age={dog_age}
-                        size={dog_size} 
-                        about={about}
-                    />
-                </div>
+                    <AnimalContainer animals={[cat, dog]} />
                 </div>
             </div>
         );
