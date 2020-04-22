@@ -123,7 +123,11 @@ body {
 
 /* Animal Styling */
 
-.animal_container {
+/* .animal_container {
+
+} */
+
+.animal {
     background-color: white;
     box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
@@ -137,26 +141,26 @@ body {
 
 .pic {
     float: left;
-    height: 100px;
-    width: 100px;
+    height: 15%;
+    width: 15%;
 }
 
-.github-profile .info {
-    width: 20%;
+.animal-profile .info {
     float: left;
+    width: 20%;
     display: inline-block;
     margin-left: 12px;
 }
 
-.github-profile .info .name {
+.animal-profile .info .name {
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.github-profile .animal_description {
+.animal-profile .animal_description {
     margin-left: 12px;
     float: left;
-    width: 60%;
+    width: 50%;
 }
 
 form {
