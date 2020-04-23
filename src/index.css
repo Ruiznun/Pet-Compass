@@ -40,9 +40,8 @@ body {
 }
 
 .menu__right {
-    display: flex;
-    align-items: center;
-    height: 100%;
+    float: right;
+    margin: 4px;
 }
 
 .menu__logo {
@@ -90,7 +89,7 @@ body {
     margin-right: 10px;
 }
 
-.menu__block-button {
+.menu__grid-button {
     text-indent: -90px;
     font-size: large;
     font-family: Helvetica;
@@ -99,10 +98,11 @@ body {
     background-color: transparent;
     outline: none;
     cursor: pointer;
-    background-image: url(Images/block-icon.png);
+    background-image: url(Images/grid-icon.png);
     background-size: 150%;
     background-repeat: no-repeat;
     background-position: center;
+    margin-right: 20px;
 }
 
 .menu__search-form {
@@ -123,15 +123,35 @@ body {
 
 /* Animal Styling */
 
-/* .animal_container {
+.animal_container {
+    background-color: #A9A9A9;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    width: 850px;
+    height: 500px;
+    margin: auto;
+    margin-bottom: 20px;
+    display: flex;
+    overflow: auto;
+    position: relative;
+    padding: 10px;
+}
 
-} */
+.animal_menu {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: white;
+    margin: -10px; /* Needed to reverse parent padding */
+    margin-bottom: 0px; /* Needed to reverse parent padding */
+    width: 850px;
+    height: 50px;
+}
 
-.animal {
+.animal__list {
     background-color: white;
     box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.15);
     border-radius: 8px;
-    width: 752px;
+    width: 672px;
     height: 150px;
     margin: 20px auto;
     display: flex;
@@ -139,28 +159,94 @@ body {
     position: relative;
 }
 
-.pic {
+.animal__grid {
+    background-color: white;
+    box-shadow: 0px 2px 24px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 8px;
+    width: 250px;
+    height: 160px;
+    margin-left: 15px;
+    margin-top: 10px;
+    /* margin: 10px auto; */
+    padding: 10px 10px;
     float: left;
-    height: 15%;
+}
+
+.animal__list .pic {
+    float: left;
+    margin-top: 15px;
     width: 15%;
 }
 
-.animal-profile .info {
+.animal__grid .pic {
     float: left;
-    width: 20%;
+    margin-top: 15px;
+    width: 100px;
+    /* height: 100px; */
+}
+
+.animal__list .animal-profile .info {
+    float: left;
+    width: 30%;
     display: inline-block;
     margin-left: 12px;
 }
 
-.animal-profile .info .name {
+.animal__grid .animal-profile .info .name {
+    float: left;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.animal__grid .animal-profile .info .breed {
+    float: right;
+    width: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.animal__grid .animal-profile .info .gender {
+    float: right;
+    width: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.animal__grid .animal-profile .info .age {
+    float: right;
+    width: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.animal__grid .animal-profile .info .size {
+    float: right;
+    width: 50%;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.animal__list .animal-profile .info .name {
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-.animal-profile .animal_description {
+.animal__grid .animal-profile .info .name {
+    font-size: 1.75rem;
+    font-weight: bold;
+}
+
+.animal__list .animal-profile .animal_description {
+    font-size: 11pt;
     margin-left: 12px;
-    float: left;
+    float: right;
     width: 50%;
+    height: 80%;
+    overflow: auto;
+}
+
+.animal__grid .animal-profile .animal_description {
+    display: none;
 }
 
 form {

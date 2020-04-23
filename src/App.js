@@ -17,7 +17,7 @@ class App extends Component {
             breed : "Tabby",
             age : 2,
             size : "Medium",
-            about: "Short info about the animal to include extra details about their personality and other info."
+            about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         };
 
         var dog = {
@@ -25,7 +25,7 @@ class App extends Component {
             name : "Gracie",
             gender : "F",
             type : "Dog",
-            breed : "Collie Mix",
+            breed : "Border Collie Mix",
             age : 6,
             size : "Large",
             about: "Short info about the animal to include extra details about their personality and other info."
@@ -40,7 +40,7 @@ class App extends Component {
                 <FilterMenu/>
                 </div> */}
                 <div className="animal_container">
-                    <AnimalContainer animals={[cat, dog]} />
+                    <AnimalContainer animals={[cat, dog, cat, dog, cat, dog, dog, dog, cat, cat]} />
                 </div>
             </div>
         );
