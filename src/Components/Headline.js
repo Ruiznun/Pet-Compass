@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import searchIcon from '../search-icon.png';
 
 class Headline extends Component {
     render() {
@@ -13,5 +12,4 @@ class Headline extends Component {
         );
     }
 }
-
 export default Headline;
