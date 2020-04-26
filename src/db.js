@@ -38,7 +38,7 @@ async function queryDb(queryText) {
    const connection = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'ReduxHacker42!',
+    password: '', /*Insert db pass here*/
     database: 'world'
    });
 
