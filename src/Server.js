@@ -9,12 +9,14 @@ const PORT = 8080;
 
 expressApp.listen(PORT, () => console.log('Express server currently listening on port ' + PORT));
 
-expressApp.get('/animals', async function(request, response) {
+const anyAnimals = async function (request, response) {
   var resultAnimals = await getAllAnimals();
   console.log("Returning animals to api");
   response.json(resultAnimals); 
-});
+}
 
+expressApp.get('/animals', anyAnimals);
+/*
 expressApp.get('/animalsByType', async function(request, response) {
     //console.log(request);
     var type = request.query.type;
@@ -22,3 +24,6 @@ expressApp.get('/animalsByType', async function(request, response) {
     var resultAnimals = await getAnimalsByType(type);
     response.json(resultAnimals);
 });
+
+*/
+
