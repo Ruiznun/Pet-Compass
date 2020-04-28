@@ -23,21 +23,21 @@ class Animal extends Component {
 
     render() {
         return (
-            <div className="container">
+            // <div className="container">
                 <div className="animal-profile">
                     <img className="pic" src={this.pic} alt="Animal Pic" />
                     <div className="info">
-                        <div className="name">{this.name} | {this.type}</div>
-                        <div className="breed">Breed: {this.breed}</div>
-                        <div className="gender">Gender: {this.gender}</div>
-                        <div className="age">Age: {this.age} years old</div>
-                        <div className="size">Size: {this.size}</div>
+                        <div className="name">{this.name}</div>
+                        <div className="breed"><strong>Breed: </strong>{this.breed}</div>
+                        <div className="gender"><strong>Gender: </strong>{this.gender}</div>
+                        <div className="age"><strong>Age: </strong>{this.age}yrs. old</div>
+                        <div className="size"><strong>Size: </strong>{this.size}</div>
                     </div>
                     <div className="animal_description">
                         <p>{this.about}</p>
                     </div>
                 </div>
-            </div>
+            // </div>
         );
     }
 }
