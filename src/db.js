@@ -36,10 +36,11 @@ class Db {
 */
 async function queryDb(queryText) {
    const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: '', /*Insert db pass here*/
-    database: 'world'
+    host: 'petcompass-1.c42mrb3qeugz.us-east-1.rds.amazonaws.com',
+    user: 'admin',
+    password: 'bsH7b23tH!0$!', /*Insert db pass here*/
+    port: 3306, 
+    database: ''
    });
 
    console.log("Made it to querydb");
