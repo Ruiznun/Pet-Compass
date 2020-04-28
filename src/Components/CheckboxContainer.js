@@ -4,12 +4,12 @@ import Checkbox from './Checkbox';
 
 const checkboxes = [
     {
-      name: 'check-box-1',
+      name: 'Male',
       key: 'checkBox1',
       label: 'Check Box 1',
     },
     {
-      name: 'check-box-2',
+      name: 'Female',
       key: 'checkBox2',
       label: 'Check Box 2',
     },

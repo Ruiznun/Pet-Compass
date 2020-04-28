@@ -123,9 +123,15 @@ body {
 
 /* Animal Styling */
 
-/* .animal_container {
-
-} */
+.animal_container {
+    background-color: gray;
+    border-radius: 8px;
+    width: 752px;
+    margin: 20px auto;
+    display: flex;
+    padding: 4px 40px;
+    position: relative;
+}
 
 .animal {
     background-color: white;
@@ -176,4 +182,9 @@ form {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1rem;
+}
+
+.filter_button {
+    text-align: center;
+    border-radius: 8px;
 }

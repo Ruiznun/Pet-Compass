@@ -20,12 +20,22 @@ class FilterSidebar extends Component {
     render() {
         return (
           <Sidebar
-            sidebar={<CheckboxContainer/>}
+            sidebar={
+              <b>
+                Filter Options<br/>
+                Gender:
+                <CheckboxContainer/>
+                Age:<br/>
+                <CheckboxContainer/>
+                Size:
+                <CheckboxContainer/>
+              </b>
+              }
             open={this.state.sidebarOpen}
             onSetOpen={this.onSetSidebarOpen}
-            styles={{ sidebar: { background: "white" } }}
+            styles={{ sidebar: { background: "white", opacity: 0.8 }}}
           >
-            <button onClick={() => this.onSetSidebarOpen(true)}>
+            <button onClick={() => this.onSetSidebarOpen(true)} className = 'filter_button'>
               Filter
             </button>
           </Sidebar>
