@@ -9,16 +9,16 @@ const PORT = 8080;
 
 expressApp.listen(PORT, () => console.log('Express server currently listening on port ' + PORT));
 
-expressApp.get('/animals', async (request, response) => {
+expressApp.get('/animals', async function(request, response) {
   var resultAnimals = await getAllAnimals();
   console.log("Returning animals to api");
   response.json(resultAnimals); 
 });
 
-expressApp.get('/animalsByType', async (request, response) => {
+expressApp.get('/animalsByType', async function(request, response) {
     //console.log(request);
     var type = request.query.type;
     console.log(type);
     var resultAnimals = await getAnimalsByType(type);
     response.json(resultAnimals);
-})
+});
