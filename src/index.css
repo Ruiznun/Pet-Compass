@@ -55,7 +55,32 @@ body {
     background-position: left;
     margin: 0;
 }
-
+.menu__about-us{
+    text-indent: -90px;
+    font-size: large;
+    font-family: Helvetica;
+    height: 42px;
+    width: 42px;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    background-image: url(Images/grid-icon.png);
+    background-size: 150%;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-right: 20px;
+}
+.about-us-page > .header{
+width: 100%;
+  border-bottom: 1px solid gray;
+  font-size: 18px;
+  text-align: center;
+  padding: 5px;
+}
+.about-us-page > .content{
+    width: 100%;
+    padding: 10px;
+}
 .menu__search-button {
     text-indent: -90px;
     font-size: large;
