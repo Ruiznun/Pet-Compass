@@ -12,22 +12,33 @@ class AnimalContainer extends Component {
             is_list: 1
         }
         this.is_list = this.setList.bind(this);
+
+        // this.animal_list = JSON.parse(this.props.animals);
+
+        // this.animal_list.map((animal, i) => {
+        //     animals.push(
+        //         <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"} key={i}>
+        //             <Animal animal={animal} />
+        //         </div>
+        //     );
+        // });
+
+        // console.log(animals);
     }
 
-    componentDidUpdate() {
-        this.animal_list = this.props.animals;
+    // componentDidUpdate() {
+    //     this.animal_list = JSON.parse(this.props.animals);
 
-        this.animal_list.map((animal, i) => {
-            animals.push(
-                <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"} key={i}>
-                    <Animal animal={animal} />
-                </div>
-            );
-        });
+    //     this.animal_list.map((animal, i) => {
+    //         animals.push(
+    //             <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"} key={i}>
+    //                 <Animal animal={animal} />
+    //             </div>
+    //         );
+    //     });
 
-        console.log(animals);
-        this.setState();
-    }
+    //     console.log(animals);
+    // }
 
     setList(id) {
         this.setState({ is_list: id });
