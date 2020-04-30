@@ -40,7 +40,7 @@ async function queryDb(queryText) {
     user: 'admin',
     password: 'bsH7b23tH!0$!', /*Insert db pass here*/
     port: 3306, 
-    database: ''
+    database: 'Petcompass'
    });
 
    console.log("Made it to querydb");
