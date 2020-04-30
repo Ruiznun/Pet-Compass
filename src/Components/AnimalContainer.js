@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
 import Animal from './Animal'
+// import { render } from '@testing-library/react';
 
+const animals = [];
 class AnimalContainer extends Component {
     constructor(props) {
         super(props);
+        this.animal_list = [];
 
-        this.animal_list = this.props.animals;
-        
         this.state = {
             is_list: 1
         }
         this.is_list = this.setList.bind(this);
-
     }
 
-    setList(id){
-        this.setState({is_list : id});
-    }
+    componentDidUpdate() {
+        this.animal_list = this.props.animals;
 
-    render() {
-        const animals = [];
         this.animal_list.map((animal, i) => {
             animals.push(
-                <div className={this.state.is_list === 1? "animal__list" : "animal__grid"} key={i}>
+                <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"} key={i}>
                     <Animal animal={animal} />
                 </div>
             );
         });
 
+        console.log(animals);
+        this.setState();
+    }
+
+    setList(id) {
+        this.setState({ is_list: id });
+    }
+
+    render() {
         return (
             <div>
                 <div className="animal_menu">

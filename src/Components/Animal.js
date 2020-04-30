@@ -3,16 +3,16 @@ import React, { Component } from 'react';
 class Animal extends Component {
     constructor(props) {
         super(props);
-        var my_animal = this.props.animal;
+        var my_animal = JSON.parse(this.props.animal);
 
-        this.pic = my_animal.pic;
+        this.pic = my_animal.picture;
         this.name = my_animal.name;
         this.gender = my_animal.gender;
-        this.type = my_animal.type;
+        this.type = my_animal.species;
         this.breed = my_animal.breed;
         this.age = my_animal.age;
         this.size = my_animal.size;
-        this.about = my_animal.about;
+        this.about = my_animal.description;
         
         // this.split_about = [this.about];
         // var split_index = 50;
@@ -29,7 +29,7 @@ class Animal extends Component {
                     <div className="info">
                         <div className="name">{this.name}</div>
                         <div className="breed"><strong>Breed: </strong>{this.breed}</div>
-                        <div className="gender"><strong>Gender: </strong>{this.gender}</div>
+                        {/* <div className="gender"><strong>Gender: </strong>{this.gender}</div> */}
                         <div className="age"><strong>Age: </strong>{this.age}yrs. old</div>
                         <div className="size"><strong>Size: </strong>{this.size}</div>
                     </div>
