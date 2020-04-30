@@ -16,7 +16,8 @@ const anyAnimals = async function (request, response) {
 }
 
 expressApp.get('/animals', anyAnimals);
-/*
+
+
 expressApp.get('/animalsByType', async function(request, response) {
     //console.log(request);
     var type = request.query.type;
@@ -25,5 +26,5 @@ expressApp.get('/animalsByType', async function(request, response) {
     response.json(resultAnimals);
 });
 
-*/
+
 

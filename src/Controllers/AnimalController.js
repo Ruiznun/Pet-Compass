@@ -2,7 +2,7 @@ var animal = require('../Models/Animal');
 var db = require('../db.js');
 
 async function Animals(){
-    /*
+    
     var animals = db.queryDb("Select * FROM animals").then(function() {
         console.log("Animals query succeeded");
         console.log(animals);
@@ -11,10 +11,10 @@ async function Animals(){
         console.log("Animals query failed");
         return null;
     });
-    */
-   var animals = await db.queryDb("Select * FROM animals");
-   console.log(animals);
-   return animals;
+    
+   //var animals = await db.queryDb("Select * FROM animals");
+   //console.log(animals);
+   return null;
 
 };
 
