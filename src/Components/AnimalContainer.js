@@ -20,7 +20,7 @@ class AnimalContainer extends Component {
 
         this.animal_list.map((animal, i) => {
             animals.push(
-                <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"} key={i}>
+                <div className="animal" key={i}>
                     <Animal animal={animal} />
                 </div>
             );
