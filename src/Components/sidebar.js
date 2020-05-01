@@ -137,7 +137,9 @@ class FilterSidebar extends Component {
         }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{ sidebar: { background: "white", opacity: 0.8 } }}
+        styles={{ sidebar: { background: "white", opacity: 0.8 },
+          root: {right: 100}
+        }}
       >
         <button onClick={() => this.onSetSidebarOpen(true)} className='filter_button' >
           Filter

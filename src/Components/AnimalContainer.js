@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Animal from './Animal'
-import FilterSidebar from './sidebar';
+import Sidebar from './sidebar';
 
 const animals = [];
 class AnimalContainer extends Component {
@@ -47,12 +47,17 @@ class AnimalContainer extends Component {
         this.setState({ is_list: id });
     }
 
+    parentFunction=(filterData)=>{
+        console.log(filterData);
+    }
+
     render() {
         var { is_loaded } = this.state;
 
         if (is_loaded) {
             return (
                 <div>
+                    <Sidebar callFromParent={this.parentFunction.bind(this)}/>
                     <div className="animal_menu">
                         <div className="menu__right">
                             {/* <div><FilterSidebar /></div> */}
