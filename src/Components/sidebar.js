@@ -24,7 +24,8 @@ class FilterSidebar extends Component {
 
   passInfo = (e) => {
     e.preventDefault();
-    this.props.callFromParent(this.checkedItems)
+    console.log(this.checkedItems);
+    this.props.callFromParent(this.checkedItems);
   }
 
   render() {

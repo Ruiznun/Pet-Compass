@@ -2,25 +2,29 @@ import React, { Component } from 'react';
 import Animal from './Animal'
 import Sidebar from './sidebar';
 
-const animals = [];
+// const animals = [];
 class AnimalContainer extends Component {
     constructor(props) {
         super(props);
-        this.animal_list = [];
+        this.animal_api_data = [];
+        this.is_updating = false;
 
         this.state = {
+            animals: [],
             is_list: 1,
             is_loaded: false,
-            filterArray: new Map()
+            filterArray: { "male": true },
         }
         this.is_list = this.setList.bind(this);
     }
 
     componentDidMount() {
-        this.animal_list = this.props.animals;
+        this.animal_api_data = this.props.animals;
 
-        this.animal_list.map((animal, i) => {
-            animals.push(
+        var temp = []
+
+        this.animal_api_data.map((animal, i) => {
+            temp.push(
                 <div className="animal" key={i}>
                     <Animal animal={animal} />
                 </div>
@@ -29,36 +33,54 @@ class AnimalContainer extends Component {
 
         this.setState({
             is_loaded: true,
+            animals: temp,
         });
     }
 
     componentDidUpdate() {
-        animals.length = 0;
+        if (this.is_updating) {
+            var temp = [];
+            console.log(this.animal_api_data);
+            this.animal_api_data.map((animal, i) => {
+                temp.push(
+                    <div className="animal" key={i}>
+                        <Animal animal={animal} />
+                    </div>
+                );
+            });
 
-        this.animal_list.map((animal, i) => {
-            animals.push(
-                <div className="animal" key={i}>
-                    <Animal animal={animal} />
-                </div>
-            );
-        });
+            this.setState({
+                animals: temp,
+            });
+            this.is_updating = false;
+        }
     }
 
     setList(id) {
+        this.is_updating = true;
         this.setState({ is_list: id });
     }
 
-    parentFunction=(filterData)=>{
-        this.setState({filterArray:filterData});
+    parentFunction = (filterData) => {
+        // this.setState({filterArray:filterData});
+        // this.animal_api_data = this.props.animals;
+        this.is_updating = true;
+
+        // console.log(this.animal_api_data);
+
+        this.animal_api_data = this.animal_api_data.filter((animal) => animal.species === "Dog");
+
+        this.setState({ is_loaded: true });
+        // console.log(this.animal_api_data);
     }
 
     render() {
-        var { is_loaded } = this.state;
+        var { is_loaded, animals } = this.state;
 
         if (is_loaded) {
             return (
                 <div>
-                    <Sidebar callFromParent={this.parentFunction.bind(this)}/>
+                    <Sidebar callFromParent={this.parentFunction.bind(this)} />
                     <div className="animal_menu">
                         <div className="menu__right">
                             <button onClick={() => this.setList(1)} className="menu__list-button"></button>
@@ -73,7 +95,7 @@ class AnimalContainer extends Component {
         } else {
             return (
                 <div>
-                    <Sidebar callFromParent={this.parentFunction.bind(this)}/>
+                    <Sidebar callFromParent={this.parentFunction.bind(this)} />
                     <div className="animal_menu">
                         <div className="menu__right">
                             <button onClick={() => this.setList(1)} className="menu__list-button"></button>
