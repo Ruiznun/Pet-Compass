@@ -49,9 +49,11 @@ class AnimalContainer extends Component {
                 );
             });
 
-            this.setState({
-                animals: temp,
-            });
+            this.setState({animals: []});
+            this.setState(prevState => ({
+                animals: [...prevState.animals, temp]
+            }));
+
             this.is_updating = false;
         }
     }
@@ -62,16 +64,13 @@ class AnimalContainer extends Component {
     }
 
     parentFunction = (filterData) => {
-        // this.setState({filterArray:filterData});
-        // this.animal_api_data = this.props.animals;
         this.is_updating = true;
+        
+        console.log(filterData);
 
-        // console.log(this.animal_api_data);
-
-        this.animal_api_data = this.animal_api_data.filter((animal) => animal.species === "Dog");
+        this.animal_api_data = this.animal_api_data.filter((animal) => animal.species === "Cat");
 
         this.setState({ is_loaded: true });
-        // console.log(this.animal_api_data);
     }
 
     render() {
