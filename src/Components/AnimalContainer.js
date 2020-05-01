@@ -73,9 +73,9 @@ class AnimalContainer extends Component {
         } else {
             return (
                 <div>
+                    <Sidebar callFromParent={this.parentFunction.bind(this)}/>
                     <div className="animal_menu">
                         <div className="menu__right">
-                            {/* <div><FilterSidebar /></div> */}
                             <button onClick={() => this.setList(1)} className="menu__list-button"></button>
                             <button onClick={() => this.setList(2)} className="menu__grid-button"></button>
                         </div>
