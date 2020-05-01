@@ -17,14 +17,14 @@ class FilterSidebar extends Component {
   }
 
   handleChange(e) {
-    const item = e.target;
+    const item = e.target.name;
     const isChecked = e.target.checked;
     this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }))
   }
 
-  passInfo = (e) => {
+  passInfo=(e)=>{
     e.preventDefault();
-    this.props.callFromParent(this.checkedItems)
+    this.props.callFromParent(this.state.checkedItems)
   }
 
   render() {
