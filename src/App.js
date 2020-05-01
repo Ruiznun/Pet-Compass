@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Headline from './Components/Headline'
 import AnimalContainer from './Components/AnimalContainer'
-// const superagent = require('superagent');
 
 // import dog_pic from './Images/dog.jpg'
 // import cat_pic from './Images/cat.jpg'
@@ -28,20 +27,9 @@ class App extends Component {
                 console.log(error);
                 alert("ERROR: Server reponded with code " + error.status);
             });
-
-        // superagent
-        //     .get("/animals")
-        //     .end((err, res) => {
-        //         if (err) {
-        //             alert(err);
-        //         } else {
-        //             this.setState({ animal_data: res.text });
-        //         }
-        //     });
     }
 
     render() {
-        // console.log(JSON.stringify(this.state.animal_data));
         var { is_loaded, animal_data } = this.state;
 
         if (!is_loaded) {
