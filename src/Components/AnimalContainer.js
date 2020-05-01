@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Animal from './Animal'
-// import { render } from '@testing-library/react';
+import FilterSidebar from './sidebar';
 
 const animals = [];
 class AnimalContainer extends Component {
@@ -9,12 +9,13 @@ class AnimalContainer extends Component {
         this.animal_list = [];
 
         this.state = {
-            is_list: 1
+            is_list: 1,
+            is_loaded: false,
         }
         this.is_list = this.setList.bind(this);
     }
 
-    componentDidUpdate() {
+    componentDidMount() {
         this.animal_list = this.props.animals;
 
         this.animal_list.map((animal, i) => {
@@ -25,8 +26,21 @@ class AnimalContainer extends Component {
             );
         });
 
-        console.log(animals);
-        this.setState();
+        this.setState({
+            is_loaded: true,
+        });
+    }
+
+    componentDidUpdate() {
+        animals.length = 0;
+
+        this.animal_list.map((animal, i) => {
+            animals.push(
+                <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"} key={i}>
+                    <Animal animal={animal} />
+                </div>
+            );
+        });
     }
 
     setList(id) {
@@ -34,17 +48,34 @@ class AnimalContainer extends Component {
     }
 
     render() {
-        return (
-            <div>
-                <div className="animal_menu">
-                    <div className="menu__right">
-                        <button onClick={() => this.setList(1)} className="menu__list-button"></button>
-                        <button onClick={() => this.setList(2)} className="menu__grid-button"></button>
+        var { is_loaded } = this.state;
+
+        if (is_loaded) {
+            return (
+                <div>
+                    <div className="animal_menu">
+                        <div className="menu__right">
+                            <div><FilterSidebar /></div>
+                            <button onClick={() => this.setList(1)} className="menu__list-button"></button>
+                            <button onClick={() => this.setList(2)} className="menu__grid-button"></button>
+                        </div>
+                    </div>
+                    {animals}
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <div className="animal_menu">
+                        <div className="menu__right">
+                            <div><FilterSidebar /></div>
+                            <button onClick={() => this.setList(1)} className="menu__list-button"></button>
+                            <button onClick={() => this.setList(2)} className="menu__grid-button"></button>
+                        </div>
                     </div>
                 </div>
-                {animals}
-            </div>
-        );
+            );
+        }
     }
 }
 

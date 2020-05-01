@@ -55,32 +55,36 @@ body {
     background-position: left;
     margin: 0;
 }
-.menu__about-us{
+
+.menu__about-us {
     text-indent: -90px;
     font-size: large;
     font-family: Helvetica;
-    height: 42px;
-    width: 42px;
+    height: 60px;
+    width: 60px;
     background-color: transparent;
     outline: none;
     cursor: pointer;
-    background-image: url(Images/grid-icon.png);
+    margin: 10px;
+    background-image: url(Images/about-us.png);
     background-size: 150%;
     background-repeat: no-repeat;
     background-position: center;
-    margin-right: 20px;
 }
-.about-us-page > .header{
-width: 100%;
-  border-bottom: 1px solid gray;
-  font-size: 18px;
-  text-align: center;
-  padding: 5px;
+
+.about-us-page>.header {
+    width: 100%;
+    border-bottom: 1px solid gray;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
 }
-.about-us-page > .content{
+
+.about-us-page>.content {
     width: 100%;
     padding: 10px;
 }
+
 .menu__search-button {
     text-indent: -90px;
     font-size: large;
@@ -130,6 +134,13 @@ width: 100%;
     margin-right: 20px;
 }
 
+.filter_button {
+    text-align: center;
+    height: 42px;
+    width: 42px;
+    border-radius: 8px;
+}
+
 .menu__search-form {
     position: absolute;
     top: 100%;
@@ -166,8 +177,10 @@ width: 100%;
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
     background-color: white;
-    margin: -10px; /* Needed to reverse parent padding */
-    margin-bottom: 0px; /* Needed to reverse parent padding */
+    margin: -10px;
+    /* Needed to reverse parent padding */
+    margin-bottom: 0px;
+    /* Needed to reverse parent padding */
     width: 850px;
     height: 50px;
 }
@@ -287,9 +300,4 @@ form {
     text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1rem;
-}
-
-.filter_button {
-    text-align: center;
-    border-radius: 8px;
 }
