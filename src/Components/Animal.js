@@ -8,7 +8,7 @@ class Animal extends Component {
         this.pic = my_animal.picture;
         this.name = my_animal.name;
         this.gender = my_animal.gender;
-        this.type = my_animal.species;
+        this.species = my_animal.species;
         this.breed = my_animal.breed;
         this.age = my_animal.age;
         this.size = my_animal.size;
@@ -21,7 +21,7 @@ class Animal extends Component {
                 <div className="animal-profile">
                     <img className="pic" src={this.pic} alt="Animal Pic" />
                     <div className="info">
-                        <div className="name">{this.name}</div>
+                        <div className="name">{this.name} | {this.species}</div>
                         <div className="breed"><strong>Breed: </strong>{this.breed}</div>
                         <div className="gender"><strong>Gender: </strong>{this.gender}</div>
                         <div className="age"><strong>Age: </strong>{this.age}yrs. old</div>
