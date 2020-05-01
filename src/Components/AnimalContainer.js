@@ -36,7 +36,7 @@ class AnimalContainer extends Component {
 
         this.animal_list.map((animal, i) => {
             animals.push(
-                <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"} key={i}>
+                <div className="animal" key={i}>
                     <Animal animal={animal} />
                 </div>
             );
@@ -55,12 +55,14 @@ class AnimalContainer extends Component {
                 <div>
                     <div className="animal_menu">
                         <div className="menu__right">
-                            <div><FilterSidebar /></div>
+                            {/* <div><FilterSidebar /></div> */}
                             <button onClick={() => this.setList(1)} className="menu__list-button"></button>
                             <button onClick={() => this.setList(2)} className="menu__grid-button"></button>
                         </div>
                     </div>
-                    {animals}
+                    <div className={this.state.is_list === 1 ? "animal__list" : "animal__grid"}>
+                        {animals}
+                    </div>
                 </div>
             );
         } else {
@@ -68,7 +70,7 @@ class AnimalContainer extends Component {
                 <div>
                     <div className="animal_menu">
                         <div className="menu__right">
-                            <div><FilterSidebar /></div>
+                            {/* <div><FilterSidebar /></div> */}
                             <button onClick={() => this.setList(1)} className="menu__list-button"></button>
                             <button onClick={() => this.setList(2)} className="menu__grid-button"></button>
                         </div>
