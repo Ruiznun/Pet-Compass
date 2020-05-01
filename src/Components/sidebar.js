@@ -85,7 +85,7 @@ class FilterSidebar extends Component {
                 />
               </label>
             </form>
-            <p>Breed:</p>
+            {/* <p>Breed:</p>
             <form>
               <label>
                 <input
@@ -101,7 +101,7 @@ class FilterSidebar extends Component {
                   type="number"
                 />
               </label>
-            </form>
+            </form> */}
             <p>Size:</p>
             <form>
               <label>
