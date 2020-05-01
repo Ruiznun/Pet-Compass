@@ -11,6 +11,7 @@ class AnimalContainer extends Component {
         this.state = {
             is_list: 1,
             is_loaded: false,
+            filterArray: new Map()
         }
         this.is_list = this.setList.bind(this);
     }
@@ -48,7 +49,7 @@ class AnimalContainer extends Component {
     }
 
     parentFunction=(filterData)=>{
-        console.log(filterData);
+        this.setState({filterArray:filterData});
     }
 
     render() {

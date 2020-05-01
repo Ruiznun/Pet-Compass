@@ -140,6 +140,7 @@ body {
     font-family: Helvetica;
     height: 42px;
     width: 42px;
+<<<<<<< HEAD
     border-radius: 50%;
     border: 1px solid #c8c9ce;
     background-color: transparent;
@@ -149,6 +150,14 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     margin: 4px;
+=======
+    border-radius: 8px;
+    background-color: black;
+    outline-width: 10px;
+    outline-color: white;
+    color: white;
+    font-size: 13px;
+>>>>>>> 9ddcd7ff26b1f27b1ebfbe3b467bcba82cf6e5d7
 }
 
 .menu__search-form {
