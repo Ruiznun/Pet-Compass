@@ -139,6 +139,11 @@ body {
     height: 42px;
     width: 42px;
     border-radius: 8px;
+    background-color: black;
+    outline-width: 10px;
+    outline-color: white;
+    color: white;
+    font-size: 13px;
 }
 
 .menu__search-form {
