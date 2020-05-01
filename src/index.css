@@ -135,10 +135,20 @@ body {
 }
 
 .filter_button {
-    text-align: center;
+    text-indent: -90px;
+    font-size: large;
+    font-family: Helvetica;
     height: 42px;
     width: 42px;
-    border-radius: 8px;
+    border-radius: 50%;
+    border: 1px solid #c8c9ce;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    background-image: url(Images/search-icon.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 4px;
 }
 
 .menu__search-form {
