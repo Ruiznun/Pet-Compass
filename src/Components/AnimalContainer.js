@@ -11,6 +11,7 @@ class AnimalContainer extends Component {
         this.state = {
             is_list: 1,
             is_loaded: false,
+            filterArray: new Map()
         }
         this.is_list = this.setList.bind(this);
     }
@@ -48,7 +49,7 @@ class AnimalContainer extends Component {
     }
 
     parentFunction=(filterData)=>{
-        console.log(filterData);
+        this.setState({filterArray:filterData});
     }
 
     render() {
@@ -60,7 +61,6 @@ class AnimalContainer extends Component {
                     <Sidebar callFromParent={this.parentFunction.bind(this)}/>
                     <div className="animal_menu">
                         <div className="menu__right">
-                            {/* <div><FilterSidebar /></div> */}
                             <button onClick={() => this.setList(1)} className="menu__list-button"></button>
                             <button onClick={() => this.setList(2)} className="menu__grid-button"></button>
                         </div>
