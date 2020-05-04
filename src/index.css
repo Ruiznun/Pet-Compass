@@ -13,6 +13,9 @@ html, body {
 body {
     background-color: #fdf9e5;
 }
+.pic{
+  
+}
 
 .container {
     width: 1000px;
@@ -75,8 +78,8 @@ body {
 .popup-content{
     border-radius: 5px;
     border-width: 1px;
-    background: #8aa77e !important;
-    border: #8aa77e !important;
+    background: #ecd6b4 !important;
+    border: #ecd6b4 !important;
 }
 .about-us-page{
     background-color: #8aa77e;
@@ -84,10 +87,11 @@ body {
 }
 .about-us-page>.header {
     width: 100%;
-    border-bottom: 1px solid ;
+    border-bottom: 1px solid #ecd6b4;
     background-color: #8aa77e;
     font-size: 18px;
     text-align: center;
+    font-weight: bold;
     padding: 5px;
 }
 
