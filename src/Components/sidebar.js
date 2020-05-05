@@ -6,7 +6,22 @@ class FilterSidebar extends Component {
     super(props);
     this.state = {
       sidebarOpen: false,
-      checkedItems: new Map()
+      checkedItems: {
+        gender:{
+          male:false,
+          female:false
+        },
+        species: {
+          dog:false,
+          cat:false,
+          rabbit:false
+        },
+        size:{
+          s:false,
+          m:false,
+          l:false
+        }
+      }
     };
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -17,9 +32,13 @@ class FilterSidebar extends Component {
   }
 
   handleChange(e) {
-    const item = e.target.name;
+    const key = e.target.name;
+    const val = e.target.value;
     const isChecked = e.target.checked;
-    this.setState(prevState => ({ checkedItems: prevState.checkedItems.set(item, isChecked) }))
+
+    var new_items = JSON.parse(JSON.stringify(this.state.checkedItems));
+    new_items[key][val] = isChecked;
+    this.setState({checkedItems: new_items });
   }
 
   passInfo=(e)=>{
@@ -38,9 +57,10 @@ class FilterSidebar extends Component {
               <label>
                 Male
                     <input
-                  name="male"
+                  name="gender"
+                  value='male'
                   type="checkbox"
-                  checked={this.state.checkedItems.get("male")}
+                  checked={this.state.checkedItems.gender.male}
                   onChange={this.handleChange}
                 />
               </label>
@@ -48,9 +68,10 @@ class FilterSidebar extends Component {
               <label>
                 Female
                       <input
-                  name="female"
+                  name="gender"
+                  val="female"
                   type="checkbox"
-                  checked={this.state.checkedItems.get("female")}
+                  checked={this.state.checkedItems.gender.female}
                   onChange={this.handleChange}
                 />
               </label>
@@ -59,28 +80,31 @@ class FilterSidebar extends Component {
             <form>
               <label>
                 Dog
-                      <input
-                  name="dog"
+                    <input
+                  name="species"
+                  value="dog"
                   type="checkbox"
-                  checked={this.state.checkedItems.get("dog")}
+                  checked={this.state.checkedItems.species.dog}
                   onChange={this.handleChange}
                 />
               </label>
               <label>
                 Cat
                       <input
-                  name="cat"
+                  name="species"
+                  value="cat"
                   type="checkbox"
-                  checked={this.state.checkedItems.get("cat")}
+                  checked={this.state.checkedItems.species.cat}
                   onChange={this.handleChange}
                 />
               </label>
               <label>
                 Rabbit
                       <input
-                  name="rabbit"
+                  name="species"
+                  value="rabbit"
                   type="checkbox"
-                  checked={this.state.checkedItems.get("rabbit")}
+                  checked={this.state.checkedItems.species.rabbit}
                   onChange={this.handleChange}
                 />
               </label>
@@ -107,27 +131,30 @@ class FilterSidebar extends Component {
               <label>
                 Small
                       <input
-                  name="S"
+                  name="size"
+                  value="s"
                   type="checkbox"
-                  checked={this.state.checkedItems.get("S")}
+                  checked={this.state.checkedItems.size.s}
                   onChange={this.handleChange}
                 />
               </label>
               <label>
                 Medium
                       <input
-                  name="M"
+                  name="size"
+                  val="m"
                   type="checkbox"
-                  checked={this.state.checkedItems.get("M")}
+                  checked={this.state.checkedItems.size.m}
                   onChange={this.handleChange}
                 />
               </label>
               <label>
                 Large
                       <input
-                  name="L"
+                  name="size"
+                  value="l"
                   type="checkbox"
-                  checked={this.state.checkedItems.get("L")}
+                  checked={this.state.checkedItems.size.l}
                   onChange={this.handleChange}
                 />
               </label>
