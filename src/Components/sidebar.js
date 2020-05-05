@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import Sidebar from 'react-sidebar';
+import React, { Component } from "react";
+import Sidebar from "react-sidebar";
 
 class FilterSidebar extends Component {
   constructor(props) {
@@ -7,44 +7,59 @@ class FilterSidebar extends Component {
     this.state = {
       sidebarOpen: false,
       checkedItems: {
-        gender:{
-          male:false,
-          female:false
+        gender: {
+          male: false,
+          female: false
         },
         species: {
-          dog:false,
-          cat:false,
-          rabbit:false
+          dog: false,
+          cat: false,
+          small_animal: false,
+          bird: false,
+          reptile: false,
+          fish: false,
+          crustacean: false
         },
-        size:{
-          s:false,
-          m:false,
-          l:false
-        }
-      }
+        size: {
+          s: false,
+          m: false,
+          l: false
+        },
+      },
     };
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.handleChangeCheck = this.handleChangeCheck.bind(this);
+    this.handleChangeValue = this.handleChangeValue.bind(this);
   }
 
   onSetSidebarOpen(open) {
     this.setState({ sidebarOpen: open });
   }
 
-  handleChange(e) {
+  handleChangeCheck(e) {
     const key = e.target.name;
     const val = e.target.value;
     const isChecked = e.target.checked;
 
     var new_items = JSON.parse(JSON.stringify(this.state.checkedItems));
     new_items[key][val] = isChecked;
-    this.setState({checkedItems: new_items });
+    this.setState({ checkedItems: new_items });
   }
 
-  passInfo=(e)=>{
-    e.preventDefault();
-    this.props.callFromParent(this.state.checkedItems)
+  //handle change value (text)
+  handleChangeValue(e) {
+    const key = e.target.name;
+    const val = e.target.value;
+
+    var new_items = JSON.parse(JSON.stringify(this.state.checkedItems));
+    new_items[key] = val;
+    this.setState({ checkedItems: new_items });
   }
+
+  passInfo = (e) => {
+    e.preventDefault();
+    this.props.callFromParent(this.state.checkedItems);
+  };
 
   render() {
     return (
@@ -56,23 +71,23 @@ class FilterSidebar extends Component {
             <form>
               <label>
                 Male
-                    <input
+                <input
                   name="gender"
-                  value='male'
+                  value="male"
                   type="checkbox"
                   checked={this.state.checkedItems.gender.male}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
               <br />
               <label>
                 Female
-                      <input
+                <input
                   name="gender"
-                  val="female"
+                  value="female"
                   type="checkbox"
                   checked={this.state.checkedItems.gender.female}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
             </form>
@@ -80,82 +95,105 @@ class FilterSidebar extends Component {
             <form>
               <label>
                 Dog
-                    <input
+                <input
                   name="species"
                   value="dog"
                   type="checkbox"
                   checked={this.state.checkedItems.species.dog}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
               <label>
                 Cat
-                      <input
+                <input
                   name="species"
                   value="cat"
                   type="checkbox"
                   checked={this.state.checkedItems.species.cat}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
               <label>
-                Rabbit
-                      <input
+                Small Animal
+                <input
                   name="species"
-                  value="rabbit"
+                  value="small_animal"
                   type="checkbox"
-                  checked={this.state.checkedItems.species.rabbit}
-                  onChange={this.handleChange}
+                  checked={this.state.checkedItems.species.small_animal}
+                  onChange={this.handleChangeCheck}
+                />
+              </label>
+              <label>
+                Bird
+                <input
+                  name="species"
+                  value="bird"
+                  type="checkbox"
+                  checked={this.state.checkedItems.species.bird}
+                  onChange={this.handleChangeCheck}
+                />
+              </label>
+              <label>
+                Fish
+                <input
+                  name="species"
+                  value="fish"
+                  type="checkbox"
+                  checked={this.state.checkedItems.species.fish}
+                  onChange={this.handleChangeCheck}
+                />
+              </label>
+              <label>
+                reptile
+                <input
+                  name="species"
+                  value="reptile"
+                  type="checkbox"
+                  checked={this.state.checkedItems.species.reptile}
+                  onChange={this.handleChangeCheck}
+                />
+              </label>
+              <label>
+                Crustacean
+                <input
+                  name="species"
+                  value="crustacean"
+                  type="checkbox"
+                  checked={this.state.checkedItems.species.crustacean}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
             </form>
-            {/* <p>Breed:</p>
-            <form>
-              <label>
-                <input
-                  type="text"
-                />
-              </label>
-            </form>
-            <p>Age:</p>
-            <form>
-              <label>
-                <input
-                  name="age"
-                  type="number"
-                />
-              </label>
-            </form> */}
             <p>Size:</p>
             <form>
               <label>
                 Small
-                      <input
+                <input
                   name="size"
                   value="s"
                   type="checkbox"
                   checked={this.state.checkedItems.size.s}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
               <label>
                 Medium
-                      <input
+                <input
                   name="size"
-                  val="m"
+                  value="m"
                   type="checkbox"
                   checked={this.state.checkedItems.size.m}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
               <label>
                 Large
-                      <input
+                <input
                   name="size"
                   value="l"
                   type="checkbox"
                   checked={this.state.checkedItems.size.l}
-                  onChange={this.handleChange}
+                  onChange={this.handleChangeCheck}
                 />
               </label>
             </form>
@@ -164,13 +202,17 @@ class FilterSidebar extends Component {
         }
         open={this.state.sidebarOpen}
         onSetOpen={this.onSetSidebarOpen}
-        styles={{ sidebar: { background: "white", opacity: 0.8 },
-          root: {right: 100}
+        styles={{
+          sidebar: { background: "white", opacity: 0.8 },
+          root: { right: 100 },
         }}
       >
-        <button onClick={() => this.onSetSidebarOpen(true)} className='filter_button' >
+        <button
+          onClick={() => this.onSetSidebarOpen(true)}
+          className="filter_button"
+        >
           Filter
-            </button>
+        </button>
       </Sidebar>
     );
   }
