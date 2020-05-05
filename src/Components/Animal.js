@@ -21,7 +21,7 @@ class Animal extends Component {
                 <div className="animal-profile">
                     <img className="pic" src={this.pic} alt="Animal Pic" />
                     <div className="info">
-                        <div className="name">{this.name} | {this.species}</div>
+                        <div className="name">{this.name}</div>
                         <div className="breed"><strong>Breed: </strong>{this.breed}</div>
                         <div className="gender"><strong>Gender: </strong>{this.gender}</div>
                         <div className="age"><strong>Age: </strong>{this.age}yrs. old</div>
