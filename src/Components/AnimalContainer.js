@@ -69,60 +69,80 @@ class AnimalContainer extends Component {
   }
 
   parentFunction = (filterData) => {
+    console.log(filterData);
     this.is_updating = true;
     this.animal_api_data = this.props.animals;
     this.clearList();
 
     this.animal_api_data = this.animal_api_data.filter(function (animal) {
-      var is_okay = true;
       //gender
+      var good_gender = false;
       if (filterData.gender.male) {
-        if (animal.gender !== "Male") return false;
+        good_gender = (animal.gender === "Male");
       }
       if (filterData.gender.female) {
-        if (animal.gender !== "Female") return false;
+        good_gender = (animal.gender === "Female") ? true : good_gender;
       }
+      if (!filterData.gender.female && !filterData.gender.male) {
+        good_gender = true;
+      }
+
       //species
+      var good_species = false;
       if (filterData.species.dog) {
-        if (animal.species !== "Dog") return false;
+        good_species = (animal.species === "Dog");
       }
       if (filterData.species.cat) {
-        if (animal.species !== "Cat") return false;
+        good_species = (animal.species === "Cat") ? true : good_species;
       }
       if (filterData.species.small_animal) {
-        if (animal.species !== "Small Animal") return false;
+        good_species = (animal.species === "Small Animal") ? true : good_species;
       }
       if (filterData.species.fish) {
-        if (animal.species !== "Fish") return false;
+        good_species = (animal.species === "Fish") ? true : good_species;
       }
       if (filterData.species.bird) {
-        if (animal.species !== "Bird") return false;
+        good_species = (animal.species === "Bird") ? true : good_species;
       }
       if (filterData.species.reptile) {
-        if (animal.species !== "Reptile") return false;
+        good_species = (animal.species === "Reptile") ? true : good_species;
       }
       if (filterData.species.crustacean) {
-        if (animal.species !== "Crustacean") return false;
+        good_species = (animal.species === "Crustacean") ? true : good_species;
       }
+      if (!filterData.species.dog && !filterData.species.cat &&
+          !filterData.species.small_animal && !filterData.species.fish &&
+          !filterData.species.bird && !filterData.species.reptile &&
+          !filterData.species.crustacean) {
+        good_species = true;
+      }
+
       //breed
+      var good_breed = false;
       if (filterData.breed !== "") {
-        if (animal.breed == filterData.breed) return false;
-      }
+        good_breed = (animal.breed === filterData.breed);
+      } else good_breed = true;
+
       //age
-      if ((filterData.age.min <= filterData.age.max) && animal.age < filterData.age.min || animal.age > filterData.age.max) return false;
+      var good_age = false;
+      good_age = (animal.age >= filterData.age.min && animal.age <= filterData.age.max);
 
       //size
+      var good_size = false;
       if (filterData.size.s) {
-        if (animal.size !== "Small") return false;
+        good_size = (animal.size === "Small");
       }
       if (filterData.size.m) {
-        if (animal.size !== "Medium") return false;
+        good_size = (animal.size !== "Medium") ? true : good_size;
       }
       if (filterData.size.l) {
-        if (animal.size !== "Large") return false;
+        good_size = (animal.size !== "Large") ? true : good_size;
+      }
+      if (!filterData.size.s && !filterData.size.m && !filterData.size.l){
+        good_size = true;
       }
 
-      return is_okay;
+      return good_gender && good_species && good_breed && good_age && good_size;
     });
 
     this.setState({ is_loaded: true });

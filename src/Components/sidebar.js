@@ -66,9 +66,11 @@ class FilterSidebar extends Component {
     const key = e.target.name;
     const val = e.target.value;
     const id = e.target.id;
+    const ph = e.target.placeholder;
 
+    var new_val = (isNaN(parseInt(val))) ? parseInt(ph) : parseInt(val);
     var new_items = JSON.parse(JSON.stringify(this.state.checkedItems));
-    new_items[key][id] = parseInt(val);
+    new_items[key][id] = new_val;
     this.setState({ checkedItems: new_items });
   }
 
