@@ -25,11 +25,17 @@ class FilterSidebar extends Component {
           m: false,
           l: false
         },
+        breed: "",
+        age: {
+          min: 0,
+          max: 255,
+        },
       },
     };
     this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
     this.handleChangeCheck = this.handleChangeCheck.bind(this);
     this.handleChangeValue = this.handleChangeValue.bind(this);
+    this.handleChangeInt = this.handleChangeInt.bind(this);
   }
 
   onSetSidebarOpen(open) {
@@ -53,6 +59,16 @@ class FilterSidebar extends Component {
 
     var new_items = JSON.parse(JSON.stringify(this.state.checkedItems));
     new_items[key] = val;
+    this.setState({ checkedItems: new_items });
+  }
+
+  handleChangeInt(e) {
+    const key = e.target.name;
+    const val = e.target.value;
+    const id = e.target.id;
+
+    var new_items = JSON.parse(JSON.stringify(this.state.checkedItems));
+    new_items[key][id] = parseInt(val);
     this.setState({ checkedItems: new_items });
   }
 
@@ -161,6 +177,43 @@ class FilterSidebar extends Component {
                   type="checkbox"
                   checked={this.state.checkedItems.species.crustacean}
                   onChange={this.handleChangeCheck}
+                />
+              </label>
+            </form>
+            <p>Breed:</p>
+            <form>
+              <label>
+                <input
+                  name="breed"
+                  type="text"
+                  onChange={this.handleChangeValue}
+                />
+              </label>
+            </form>
+            <p>Age:</p>
+            <form>
+              <label>
+                Min:
+                <input
+                  name="age"
+                  id="min"
+                  type="number"
+                  placeholder="0"
+                  min="0"
+                  max="255"
+                  onChange={this.handleChangeInt}
+                />
+              </label>
+              <label>
+                Max:
+                <input
+                  name="age"
+                  id="max"
+                  type="number"
+                  placeholder="255"
+                  min="0"
+                  max="255"
+                  onChange={this.handleChangeInt}
                 />
               </label>
             </form>
