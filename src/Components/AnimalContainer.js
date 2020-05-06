@@ -16,6 +16,7 @@ class AnimalContainer extends Component {
       filterArray: { male: true },
     };
     this.is_list = this.setList.bind(this);
+    this.clearList = this.clearList.bind(this);
   }
 
   componentDidMount() {
@@ -40,7 +41,6 @@ class AnimalContainer extends Component {
   componentDidUpdate() {
     if (this.is_updating) {
       var temp = [];
-      console.log(this.animal_api_data);
       this.animal_api_data.map((animal, i) => {
         temp.push(
           <div className="animal" key={i}>
@@ -63,15 +63,18 @@ class AnimalContainer extends Component {
     this.setState({ is_list: id });
   }
 
+  clearList(){
+    this.is_updating = true;
+    this.setState({ animals: [] });
+  }
+
   parentFunction = (filterData) => {
     this.is_updating = true;
-
-    console.log(filterData);
+    this.animal_api_data = this.props.animals;
+    this.clearList();
 
     this.animal_api_data = this.animal_api_data.filter(function (animal) {
       var is_okay = true;
-      console.log(filterData);
-      console.log(animal);
       //gender
       if (filterData.gender.male) {
         if (animal.gender !== "Male") return false;
@@ -101,6 +104,13 @@ class AnimalContainer extends Component {
       if (filterData.species.crustacean) {
         if (animal.species !== "Crustacean") return false;
       }
+      //breed
+      if (filterData.breed !== "") {
+        if (animal.breed == filterData.breed) return false;
+      }
+      //age
+      if ((filterData.age.min <= filterData.age.max) && animal.age < filterData.age.min || animal.age > filterData.age.max) return false;
+
       //size
       if (filterData.size.s) {
         if (animal.size !== "Small") return false;
