@@ -2,7 +2,7 @@
   "name": "pet_compass",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://ec2-54-226-174-249.compute-1.amazonaws.com:8043",
+  "proxy": "",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
