@@ -11,6 +11,21 @@ var options = {
 };
 
 
+const anyAnimals = async function (request, response) {
+  var resultAnimals = await getAllAnimals();
+  console.log("Returning animals to api");
+  response.json(resultAnimals); 
+}
+
+expressApp.get('/animalsByType', async function(request, response) {
+  //console.log(request);
+  var type = request.query.type;
+  console.log(type);
+  var resultAnimals = await getAnimalsByType(type);
+  response.json(resultAnimals);
+});
+
+expressApp.get('/animals', anyAnimals);
 
 const express = require('express');
 
@@ -25,23 +40,7 @@ expressApp.listen(PORT, () => console.log('Express server currently listening on
 server.listen(HTTPSPORT, () => {console.log('HTTPS express starting on port : ' + HTTPSPORT)
 });
 
-const anyAnimals = async function (request, response) {
-  var resultAnimals = await getAllAnimals();
-  console.log("Returning animals to api");
-  response.json(resultAnimals); 
-}
 
-expressApp.get('/animals', anyAnimals);
-server.get('/animals', anyAnimals);
-
-
-expressApp.get('/animalsByType', async function(request, response) {
-    //console.log(request);
-    var type = request.query.type;
-    console.log(type);
-    var resultAnimals = await getAnimalsByType(type);
-    response.json(resultAnimals);
-});
 
 
 
