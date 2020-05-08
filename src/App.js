@@ -15,7 +15,7 @@ class App extends Component {
     }
 
     componentDidMount() {
-        fetch("https://ec2-54-226-174-249.compute-1.amazonaws.com:8043/animals")
+        fetch("/animals")
             .then(res => res.json())
             .then(json => {
                 this.setState({
